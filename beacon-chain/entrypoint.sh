@@ -4,9 +4,12 @@
 [[ -n $CHECKPOINT_SYNC_URL ]] && EXTRA_OPTS="--initial-state=${CHECKPOINT_SYNC_URL}/eth/v2/debug/beacon/states/finalized ${EXTRA_OPTS}"
 
 exec /opt/teku/bin/teku \
-    --network=prater \
+    --network=ropsten \
     --data-base-path=/opt/teku/data \
     --eth1-endpoint=$HTTP_WEB3PROVIDER \
+    --ee-endpoint=$HTTPS_ENGINE \
+    --ee-jwt-secret-file="/jwtsecret" \
+    --Xnetwork-total-terminal-difficulty-override=$TTD_OVERRIDE \
     --p2p-port=9000 \
     --rest-api-cors-origins="*" \
     --rest-api-interface=0.0.0.0 \

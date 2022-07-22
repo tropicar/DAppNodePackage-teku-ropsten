@@ -12,7 +12,7 @@ RUN mkdir -p /opt/teku/data
 RUN chown -R 1001:1001 /opt/teku/data
 
 ENV JAVA_OPTS="-Xmx4g"
-
+COPY jwtsecret.hex /jwtsecret
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 # API port: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#rest-api-port
